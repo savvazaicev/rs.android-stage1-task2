@@ -11,6 +11,7 @@ class DateFormatter {
         var parsed: String = "Такого дня не существует"
         try {
             parsed = LocalDate.parse("$year-$newMonth-$day").format(DateTimeFormatter.ofPattern("dd MMMM, EEEE"))
+                .withLocale(Locale("ru")))
         } finally {
             return parsed
         }
