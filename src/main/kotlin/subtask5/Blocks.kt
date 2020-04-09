@@ -6,9 +6,8 @@ import kotlin.reflect.KClass
 
 class Blocks {
 
-    // TODO: Complete the following function
-    fun getData(blockA: Array<Any>, blockB: KClass<*>): Any {
-        val arr = blockA.toMutableList().filter { it::class == blockB }
+    fun getData(blockA: Array<*>, blockB: KClass<*>): Any {
+        val arr = blockA.toMutableList().filter { it!!::class == blockB }
         return when (blockB) {
             Int::class -> arr.sumBy { it.toString().toInt() }
             String::class -> arr.joinToString("")
